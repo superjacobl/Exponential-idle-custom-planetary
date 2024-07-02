@@ -175,7 +175,7 @@ var init = () => {
     // L
     {
         let getDesc = (level) => "L = " + getL(level).toString(0) + '\\, m';
-        L = theory.createUpgrade(1, currency, new ExponentialCost(0.05, Math.pow(10, .7)));
+        L = theory.createUpgrade(1, currency, new ExponentialCost(0.01, Math.pow(10, .7)));
         L.getDescription = (_) => Utils.getMath(getDesc(L.level));
         L.getInfo = (amount) => Utils.getMathTo(getDesc(L.level), getDesc(L.level + amount));
     }
@@ -570,7 +570,7 @@ var getMaterialValue = (level) => materials(level, 'value');
 var getMaterialForm = (level) => materials(level, 'form');
 
 var getL = (level) => BigNumber.from(level + 1);
-var getC1 = (level) => (BigNumber.from(level) / 10).pow(2.1415926535898 / 1.25 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(100);
+var getC1 = (level) => (BigNumber.from(level) / 10).pow(2.1415926535898 / 1.15 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(500);
 var getP1 = (level) => BigNumber.from(getMaterialValue(level));
 var getC2 = (level) => BigNumber.from(1.005).pow(level);
 var getw = (level) => BigNumber.from(1 + level * .25);
