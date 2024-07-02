@@ -559,8 +559,8 @@ var setInternalState = (stateString) => {
 }
 
 // 0.078
-var taupow = .088 * BigNumber.E;
-var getPublicationMultiplier = (tau) => tau.pow(taupow / (1 + .01 * Math.log(1 + permup3.level)));
+var taupow = .098 * BigNumber.E;
+var getPublicationMultiplier = (tau) => tau.pow(taupow / (1 + .01 * Math.log(1 + permup3.level))) * BigNumber.from(10);
 var getPublicationMultiplierFormula = (symbol) => `${symbol}^{${taupow / (1 + .01 * Math.log(1 + permup3.level))}}`;
 var getTau = () => currency.value;
 var get2DGraphValue = () => {
