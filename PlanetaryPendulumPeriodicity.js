@@ -212,7 +212,7 @@ var init = () => {
 
     /////////////////////
     // Permanent Upgrades
-    theory.createPublicationUpgrade(0, currency2, 1e25);
+    theory.createPublicationUpgrade(0, currency2, 1e15);
     theory.createBuyAllUpgrade(1, currency, 1e3);
     theory.createAutoBuyerUpgrade(2, currency2, 1e15);
     permup3 = theory.createPermanentUpgrade(3, currency3, new FreeCost());
@@ -558,7 +558,8 @@ var setInternalState = (stateString) => {
     };
 }
 
-var taupow = .078 * BigNumber.E;
+// 0.078
+var taupow = .088 * BigNumber.E;
 var getPublicationMultiplier = (tau) => tau.pow(taupow / (1 + .01 * Math.log(1 + permup3.level)));
 var getPublicationMultiplierFormula = (symbol) => `${symbol}^{${taupow / (1 + .01 * Math.log(1 + permup3.level))}}`;
 var getTau = () => currency.value;
