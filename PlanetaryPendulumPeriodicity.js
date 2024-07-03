@@ -176,7 +176,7 @@ var init = () => {
     {
         let getDesc = (level) => "L = " + getL(level).toString(0) + '\\, m';
         // 0.8
-        L = theory.createUpgrade(1, currency, new ExponentialCost(0.01, Math.pow(10, .45)));
+        L = theory.createUpgrade(1, currency, new ExponentialCost(0.01, Math.pow(10, .4)));
         L.getDescription = (_) => Utils.getMath(getDesc(L.level));
         L.getInfo = (amount) => Utils.getMathTo(getDesc(L.level), getDesc(L.level + amount));
     }
@@ -560,7 +560,7 @@ var setInternalState = (stateString) => {
 }
 
 // 0.078
-var taupow = .108 * BigNumber.E;
+var taupow = .118 * BigNumber.E;
 var getPublicationMultiplier = (tau) => tau.pow(taupow / (1 + .01 * Math.log(1 + permup3.level))) * BigNumber.from(10);
 var getPublicationMultiplierFormula = (symbol) => `${symbol}^{${taupow / (1 + .01 * Math.log(1 + permup3.level))}}`;
 var getTau = () => currency.value;
