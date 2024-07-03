@@ -571,7 +571,7 @@ var getMaterialValue = (level) => materials(level, 'value');
 var getMaterialForm = (level) => materials(level, 'form');
 
 var getL = (level) => BigNumber.from(level + 1);
-var getC1 = (level) => (BigNumber.from(level) / 10).pow(2.1415926535898 / 1.15 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(500);
+var getC1 = (level) => (BigNumber.from(level) / 10).pow(2.1415926535898 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(500);
 var getP1 = (level) => BigNumber.from(getMaterialValue(level));
 var getC2 = (level) => BigNumber.from(1.005).pow(level);
 var getw = (level) => BigNumber.from(1 + level * .25);
