@@ -176,14 +176,15 @@ var init = () => {
     {
         let getDesc = (level) => "L = " + getL(level).toString(0) + '\\, m';
         // 0.8
-        L = theory.createUpgrade(1, currency, new ExponentialCost(0.01, Math.pow(10, .275)));
+        L = theory.createUpgrade(1, currency, new ExponentialCost(0.01, Math.pow(10, .25)));
         L.getDescription = (_) => Utils.getMath(getDesc(L.level));
         L.getInfo = (amount) => Utils.getMathTo(getDesc(L.level), getDesc(L.level + amount));
     }
     
     // density
     {
-        p1 = theory.createUpgrade(2, currency, new ExponentialCost(10/(Math.pow(2, 6.125)), 6.125));
+        // 6.125
+        p1 = theory.createUpgrade(2, currency, new ExponentialCost(10/(Math.pow(2, 6.125)), 4));
         let getDesc = (level) => `${getMaterialName(level)}=` + getP1(p1.level).toString(4) + '\\, \\frac{{kg}}{m^3}';
         let getInfo = (level) => `${getMaterialName(level, false)}=` + getP1(level).toString(4) + '\\, \\frac{{kg}}{m^3}';
         p1.getDescription = (_) => Utils.getMath(getDesc(p1.level));
@@ -572,8 +573,8 @@ var getMaterialValue = (level) => materials(level, 'value');
 var getMaterialForm = (level) => materials(level, 'form');
 
 //var getL = (level) => BigNumber.from(level + 1);
-var getL = (level) => Utils.getStepwisePowerSum(level, 3, 10, 1);
-var getC1 = (level) => (BigNumber.from(level) / 10).pow(2.1415926535898 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(500);
+var getL = (level) => Utils.getStepwisePowerSum(level, 4, 10, 1);
+var getC1 = (level) => (BigNumber.from(level) / 10).pow(2.1415926535898 * 1.2 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(500);
 var getP1 = (level) => BigNumber.from(getMaterialValue(level));
 var getC2 = (level) => BigNumber.from(1.005).pow(level);
 var getw = (level) => BigNumber.from(1 + level * .25);
