@@ -375,7 +375,7 @@ var tick = (elapsedTime, multiplier) => {
     T = BigNumber.from(Peri(gravity) * nicerD) / nicerD;
     
     f = Frec(gravity);
-    currency.value += dt * BigNumber.from(f * Math.pow(getL(L.level) + BigNumber.from(Z * unlockedAchievements['blackHoles'] ?? 0), 2 + muUpg.level * muupgval)) * bonus;
+    currency.value += dt * BigNumber.from(f * Math.pow(getL(L.level) + BigNumber.from(Z * unlockedAchievements['blackHoles'] ?? 0), 2.5 + muUpg.level * muupgval)) * bonus;
     
     k = calcK().toFixed(8);
     n = calcN();
@@ -481,7 +481,7 @@ var getTertiaryEquation = () => {
     if (stage < 2) {
         return `
             \\begin{matrix}
-            ${theory.latexSymbol} = \\max(${currency.symbol}) \\;, \\quad ${currency.symbol} = {${unlockedAchievements['blackHoles'] ? `(L + \\zeta)` : 'L'}}^{${2 + muUpg.level * muupgval}} \\cdot \\int_{0}^{t} f \\cdot dt \\;, \\quad ${currency2.symbol} = \\int_{0}^{t} V \\cdot dt
+            ${theory.latexSymbol} = \\max(${currency.symbol}) \\;, \\quad ${currency.symbol} = {${unlockedAchievements['blackHoles'] ? `(L + \\zeta)` : 'L'}}^{${2.5 + muUpg.level * muupgval}} \\cdot \\int_{0}^{t} f \\cdot dt \\;, \\quad ${currency2.symbol} = \\int_{0}^{t} V \\cdot dt
             \\\\\\\\
             \\end{matrix}
         `;
@@ -559,7 +559,7 @@ var setInternalState = (stateString) => {
 }
 
 // 0.078
-var taupow = .098 * BigNumber.E;
+var taupow = .108 * BigNumber.E;
 var getPublicationMultiplier = (tau) => tau.pow(taupow / (1 + .01 * Math.log(1 + permup3.level))) * BigNumber.from(10);
 var getPublicationMultiplierFormula = (symbol) => `${symbol}^{${taupow / (1 + .01 * Math.log(1 + permup3.level))}}`;
 var getTau = () => currency.value;
