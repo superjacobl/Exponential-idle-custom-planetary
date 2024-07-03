@@ -399,7 +399,7 @@ var getPrimaryEquation = () => {
     if (stage == 0) {
         return `
             \\begin{matrix}
-            f = \\frac{{1}}{T} \\;, \\quad T = 2\\pi \\sqrt{\\frac{{${unlockedAchievements['blackHoles'] ? `L + \\zeta` : 'L'}}}{g}} \\;, \\quad g = ${G}\\frac{{${M}}}{${r}^2}
+            f = \\frac{{1}}{T} \\;, \\quad T = 2\\pi \\sqrt{\\frac{{${unlockedAchievements['blackHoles'] ? `L + \\zeta` : 'L'}}}{g ^ {1.3}}} \\;, \\quad g = ${G}\\frac{{${M}}}{${r}^2}
             \\\\\\\\
             \\\\\\\\
             {${r}} = \\frac{{3V}}{4\\pi}\\; ^ {\\frac{{1}}{3}} \\;, \\quad V = V_0 + \\sum_{n=${getMaterialForm(1)}}^{${getMaterialForm(p1.level)}} V_{n} \\;, \\quad \\dot{${M}} = c_1 \\, ^{${c1Exp.level > 0 ? 1 + c1Exp.level*c1expval : ''}}${permup5.level == 1 ? 'c_2' : ''}
@@ -627,7 +627,7 @@ const Peri = (gravity, type='number') => {
     try {
         const { mts: constantsmts, exp: constantsexp } = expMantissa(2 * Math.PI);
         const { mts: Lmts, exp: Lexp } = expMantissa(Math.pow(getL(L.level), .5));
-        const { mts: gravitymts, exp: gravityexp } = expMantissa(Math.pow(gravity * 10e20, .5));
+        const { mts: gravitymts, exp: gravityexp } = expMantissa(Math.pow(gravity * 10e20, .5 * 1.3));
         const operation = constantsmts * Lmts / gravitymts;
         const { mts: opmts, exp: opexp } = expMantissa(operation);
         const expo = (constantsexp + (Lexp - (gravityexp - 10))) + opexp;
