@@ -641,7 +641,7 @@ const Peri = (gravity, type='number') => {
             return `${opmts.toFixed(2)}e${expo.toFixed(0)}`;
         };
     } catch {
-        return BigNumber.TWO * BigNumber.PI * Math.pow(getL(L.level) / gravity, .5);
+        return BigNumber.TWO * BigNumber.PI * Math.pow(getL(L.level) / Math.pow(gravity, 1.3), .5);
     }
 }
 const Frec = (gravity, type='number') => {
