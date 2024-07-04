@@ -561,7 +561,7 @@ var setInternalState = (stateString) => {
 }
 
 // 0.078
-var taupow = .118 * BigNumber.E;
+var taupow = .138 * BigNumber.E;
 var getPublicationMultiplier = (tau) => tau.pow(taupow / (1 + .01 * Math.log(1 + permup3.level))) * BigNumber.from(10);
 var getPublicationMultiplierFormula = (symbol) => `${symbol}^{${taupow / (1 + .01 * Math.log(1 + permup3.level))}}`;
 var getTau = () => currency.value;
@@ -573,9 +573,9 @@ var getMaterialValue = (level) => materials(level, 'value');
 var getMaterialForm = (level) => materials(level, 'form');
 
 //var getL = (level) => BigNumber.from(level + 1);
-var getL = (level) => Utils.getStepwisePowerSum(level, 5, 10, 1);
+var getL = (level) => Utils.getStepwisePowerSum(level, 6, 10, 1);
 //var getC1 = (level) => (BigNumber.from(level) / 2).pow(2.1415926535898 * 1.7 + ((level/1000)/((level/1000) + 1)) + 1.5) * BigNumber.from(500);
-var getC1 = (level) => Utils.getStepwisePowerSum(level, 2, 11, 1).pow(1.1);
+var getC1 = (level) => Utils.getStepwisePowerSum(level, 2, 11, 1).pow(1.15);
 var getP1 = (level) => BigNumber.from(getMaterialValue(level));
 var getC2 = (level) => BigNumber.from(1.005).pow(level);
 var getw = (level) => BigNumber.from(1 + level * .25);
